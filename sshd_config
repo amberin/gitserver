@@ -1,0 +1,6 @@
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers user
+HostKey ~/hostkeys/ed25519
+PidFile ~/sshd.pid

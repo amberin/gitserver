@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  gitserver:
+    build: .
+    ports:
+      - "2222:2222"
+    volumes:
+      - gitrepo:/home/user/git
+      - ssh_hostkeys:/home/user/hostkeys
+    environment:
+      - AUTHORIZED_KEYS
+
+volumes:
+  gitrepo:
+  ssh_hostkeys:
