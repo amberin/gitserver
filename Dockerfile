@@ -9,6 +9,8 @@ USER user
 WORKDIR /home/user
 RUN mkdir hostkeys .ssh git
 RUN chmod 0700 .ssh
+# Avoid symlink ownership confusion in git
+RUN git config --global --add safe.directory /repo
 COPY --chown=user ./run.sh .
 COPY --chown=user ./sshd_config .
 RUN chmod +x run.sh
