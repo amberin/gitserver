@@ -2,7 +2,11 @@
 
 set -x
 
-if ! [ -d git/repo.git ]; then
+if [ -d git/repo.git ]; then
+  # Run garbage collection
+  cd git/repo.git && git gc
+  cd
+else
   mkdir git/repo.git &&
     cd git/repo.git &&
       git init --bare
